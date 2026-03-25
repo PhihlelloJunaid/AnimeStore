@@ -1,60 +1,80 @@
 package za.ac.cput.domain;
 
+// Kyle Marais 222727993
+
 public class Payment {
     private String paymentId;
     private String orderId;
-    private String method;
+    private PaymentMethod method;
     private double amount;
-    private String status;
+    private PaymentStatus status;
 
-    //Constructor
-    public Payment(String paymentId, String orderId, String method, double amount, String status) {
-        this.paymentId = paymentId;
-        this.orderId = orderId;
-        this.method = method;
-        this.amount = amount;
-        this.status = status;
+    private Payment(Builder builder) {
+        this.paymentId = builder.paymentId;
+        this.orderId = builder.orderId;
+        this.method = builder.method;
+        this.amount = builder.amount;
+        this.status = builder.status;
     }
 
-    //Getters and Setters
+    // Getters
     public String getPaymentId() {
         return paymentId;
-    }
-
-    public void setPaymentId(String paymentId) {
-        this.paymentId = paymentId;
     }
 
     public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public PaymentMethod getMethod() {
+        return method;
     }
 
     public double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public String getMethod() {
-        return method;
-    }
-
-    public void setMethod(String method) {
-        this.method = method;
-    }
-
-    public String getStatus() {
+    public PaymentStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    // Builder class
+    public static class Builder {
+        private String paymentId;
+        private String orderId;
+        private PaymentMethod method;
+        private double amount;
+        private PaymentStatus status;
+
+        //Setters
+        public Builder setPaymentId(String paymentId) {
+            this.paymentId = paymentId;
+            return this;
+        }
+
+        public Builder setOrderId(String orderId) {
+            this.orderId = orderId;
+            return this;
+        }
+
+        public Builder setMethod(PaymentMethod method) {
+            this.method = method;
+            return this;
+        }
+
+        public Builder setAmount(double amount) {
+            this.amount = amount;
+            return this;
+        }
+
+        public Builder setStatus(PaymentStatus status) {
+            this.status = status;
+            return this;
+        }
+
+        public Payment build() {
+            return new Payment(this);
+        }
     }
 
     @Override
@@ -62,9 +82,12 @@ public class Payment {
         return "Payment{" +
                 "paymentId='" + paymentId + '\'' +
                 ", orderId='" + orderId + '\'' +
-                ", method='" + method + '\'' +
+                ", method=" + method +
                 ", amount=" + amount +
-                ", status='" + status + '\'' +
+                ", status=" + status +
                 '}';
     }
 }
+
+
+
