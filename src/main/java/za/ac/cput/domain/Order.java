@@ -1,0 +1,75 @@
+package za.ac.cput.domain;
+/*
+AnimeStore.java
+Order class
+Author: Vumbhoni Clifford Mnisi (222929456)
+Date: 23 March 2026
+*/
+public class Order {
+    private String orderId;
+    private String orderDate;
+    private double orderTotalAmount;
+    private String status;
+    private OrderItem [] orderItems;
+
+    public Order(){
+
+    }
+
+    public Order(String orderId, String orderDate, double orderTotalAmount, String status) {
+        this.orderId = orderId;
+        this.orderDate = orderDate;
+        this.orderTotalAmount = orderTotalAmount;
+        this.status = status;
+    }
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public double getAmount() {
+        return orderTotalAmount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public OrderItem[] getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public void setOrderTotalAmount(double orderTotalAmount) {
+        this.orderTotalAmount = orderTotalAmount;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setOrderItems(OrderItem[] orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId='" + orderId + '\'' +
+                ", orderDate='" + orderDate + '\'' +
+                ", amount=" + orderTotalAmount +
+                ", status='" + status + '\'' +
+                '}';
+    }
+
+}
